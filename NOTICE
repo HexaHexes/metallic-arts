@@ -1,4 +1,4 @@
-<project name>
+The Metallic Arts
 Copyright (c) 2026 Bitwise Madness
 
 This mod is licensed under the GNU Lesser General Public License v2.1 - see
@@ -11,3 +11,17 @@ without a right to do so.
 - Minecraft is a trademark of Mojang AB. This mod is not affiliated with or
   endorsed by Mojang.
 - NeoForge: https://neoforged.net/
+- Sky's Ley Lines (Minecraft Mod Development Mods, LGPL-2.1) - planned interop
+  through its published integration APIs and documentation only.
+- Ability Core and Ability Hotbar (Bitwise Madness, LGPL-2.1) - planned interop
+  through their published `api` packages.
+- Iron's Spells 'n Spellbooks - All Rights Reserved; interop-only posture
+  (public API and datapack formats, no source or asset reuse), per its licence
+  grant for dependent addons.
+- Tensura: Reincarnated - All Rights Reserved; interop-only posture (public
+  API, events and datapack formats, no source or asset reuse).
+- The Metallic Arts take inspiration from the Allomancy system of the Mistborn
+  novels by Brandon Sanderson (Dragonsteel Entertainment). This is an
+  unaffiliated fan work: it is not endorsed by Dragonsteel Entertainment and
+  contains no text, artwork or other content from the novels or their
+  adaptations.

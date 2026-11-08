@@ -1,12 +1,33 @@
-# Example Mod
+# The Metallic Arts
 
-A short, player-facing pitch goes here: one or two sentences on what the mod adds
-or changes, written for someone deciding whether to install it.
+An Allomancy-inspired metal magic mod for the Tensura RPG pack, built on Sky's
+Ley Lines, Ability Core and the Ability Hotbar.
 
-## What it does
+**Status: planning.** The scaffold compiles and CI is green; the game design is
+being worked out in [`docs/`](docs/README.md) before serious code lands.
 
-- Describe the first mechanic in plain terms.
-- Describe the second mechanic in plain terms.
+## The pitch
+
+The world's ley lines are the power; metals are the key. Swallow a vial of
+steel shavings, find a nexus where two ley lines cross, and *burn* it - the
+metal shapes the ley magic flowing through you into a single raw effect:
+push. Sixteen metals, sixteen effects, one shared reserve of power drawn
+slowly from the world instead of generated from an inventory. Every burn is
+an ordinary Ability Core ability, so metal powers sit in the same hotbar as
+your Tensura skills, battlewills and Iron's Spells spells.
+
+## What it will do (planned)
+
+- Sixteen allomantic metals as burnable abilities - iron/steel pulls and
+  pushes, tin/pewter sense and strengthen, zinc/brass riot and soothe,
+  copper/bronze hide and seek, chromium/nicrosil drain and boost, aluminium
+  and duralumin as the panic buttons.
+- Power is drawn from Sky's Ley Lines: metals are catalysts, the ley network
+  is the fuel, and nexuses refill a personal reserve over time.
+- Awakening ("snapping") gates the first metal; a full sixteen-metal Mistborn
+  endgame is the pack's capstone arc.
+- Tensura: Reincarnated race gating and Iron's Spells interplay as optional
+  integration layers - never required.
 
 ## Dependencies
 
@@ -14,82 +35,35 @@ or changes, written for someone deciding whether to install it.
 |---|---|---|
 | Required | Minecraft | — |
 | Required | NeoForge | — |
-| Optional | Example Library | What breaks or is missing without it |
+| Planned optional | Ability Core | ability contracts, activation, costs |
+| Planned optional | Ability Hotbar | the shared hotbar UI |
+| Planned optional | Sky's Ley Lines | the ley/nexus power source |
+| Later, optional | Iron's Spells 'n Spellbooks | spell interplay |
+| Later, optional | Tensura: Reincarnated | race gating, pack tie-ins |
 
-## In-game config editing
+## Documentation
 
-Mods built with this template can be edited in-game with
-[Configured](https://www.curseforge.com/minecraft/mc-mods/configured) - install
-it like any other mod; it adds no code to this one. Open the mod list, select a
-mod, press Config, and change values directly: Configured writes through
-NeoForge's config system, so a reload applies the new values without restarting
-the game.
-
-This template pre-wires the config-screen background in
-`src/main/templates/META-INF/neoforge.mods.toml`
-(`[modproperties.${mod_id}] configuredBackground`) - point it at any texture you
-like. Note Configured only shows a menu for mods that actually register a
-config: a template-derived mod with no registered settings has nothing to show.
-
-## Using this template
-
-This repository is a **template** for new NeoForge mods in this org. To start a
-mod from it: create a new repository from this template (or copy the folder),
-then work through the **rename checklist** below. Every step is mechanical.
-
-### Rename checklist
-
-The mod's identity is deliberately concentrated so a rename touches a handful of
-known places. Search the repo for each of these before you start.
-
-1. **`gradle.properties`**: set `mod_id`, `mod_name`, `mod_version`,
-   `mod_group_id`, `mod_authors`, `mod_description`. This is the single source
-   of truth: `build.gradle` reads these, and the `neoforge.mods.toml`
-   placeholders are filled from them at build time.
-2. **`settings.gradle`**: set `rootProject.name` to the same value as `mod_id`.
-3. **`build.gradle`**: `archivesName` already reads `mod_id`; leave it unless
-   you want a jar name that differs from the mod id.
-4. **Java package**: move `src/main/java/org/bitwisemadness/examplemod/` and
-   `src/gametest/java/org/bitwisemadness/examplemod/` to your new
-   `mod_group_id` path, and update the `package` declarations.
-5. **`ExampleMod.MOD_ID`**: set the constant to the new `mod_id`. It is the
-   value `@Mod` is annotated with, and it must match `mod_id` exactly.
-6. **Mixins config**: rename `src/main/resources/examplemod.mixins.json` to
-   `<mod_id>.mixins.json`, and set its `package` to your mixin package. The
-   `[[mixins]]` entry in `src/main/templates/META-INF/neoforge.mods.toml`
-   already references it by `${mod_id}.mixins.json`.
-   See [`docs/mixin-rules.md`](docs/mixin-rules.md) for the mixin rules:
-   no inherited-member `@Shadow`s, no refmap, and how to verify client mixins
-   (CI never loads the `client` array).
-7. **GameTest template structure**: if you keep the smoke test, the structure
-   lives at `src/gametest/resources/data/<mod_id>/structure/empty.nbt`; move it
-   under your new mod id. The smoke test's `@GameTest(template = "empty")`
-   resolves it.
-8. **`agents/REPO.md`**: fill in the repo header (repo, mod id, jar name), the
-   description, the dependencies, the test line and the gotchas. Do not edit
-   `agents/AGENTS.md`: it is pulled verbatim from the template repo and only
-   changes there.
-9. **Publishing block in `build.gradle`**: set the GitHub Packages URL in the
-   `publishing` block to this repository
-   (`https://maven.pkg.github.com/HexaHexes/<repo-name>`); the artifactId and the
-   pom metadata already read from `gradle.properties`.
-10. **`NOTICE`**: replace `<project name>` with the mod name and add attribution
-    for anything the mod reads through public APIs or includes. The file is
-    mandatory and must never be deleted.
-
-Search for leftovers before your first build:
-
-```
-examplemod
-Example Mod
-org.bitwisemadness.examplemod
-```
-
-All three should return nothing once the rename is complete.
+| Doc | Contents |
+|---|---|
+| [`docs/README.md`](docs/README.md) | index of the planning documents |
+| [`docs/allomancy-inventory.md`](docs/allomancy-inventory.md) | every allomantic power end to end + each metal's pack source |
+| [`docs/feruchemy-inventory.md`](docs/feruchemy-inventory.md) | the second art: storing, tapping, metalminds, Compounding |
+| [`docs/hemalurgy-inventory.md`](docs/hemalurgy-inventory.md) | the third art: spike theft, bind points, decay, constructs |
+| [`docs/brain-dump.md`](docs/brain-dump.md) | the raw idea dump - concepts, sparks, cut lines |
+| [`docs/design.md`](docs/design.md) | the working design and requirements |
+| [`docs/integrations.md`](docs/integrations.md) | per-mod integration notes against real APIs |
+| [`docs/roadmap.md`](docs/roadmap.md) | milestones from planning to the first playable build |
+| [`docs/open-questions.md`](docs/open-questions.md) | undecided questions and their options |
+| [`docs/adr/`](docs/adr/) | decisions already taken, and why |
 
 ## Credits
 
 - Built on [NeoForge](https://neoforged.net/).
+- Power drawn from [Sky's Ley Lines](https://github.com/MinecraftModDevelopmentMods/SkysLeyLines).
+- Abilities registered through [Ability Core](https://github.com/HexaHexes/ability-core),
+  shown in [Ability Hotbar](https://github.com/HexaHexes/ability-hotbar).
+- Inspired by Brandon Sanderson's Mistborn novels (Dragonsteel Entertainment) -
+  an unaffiliated fan work, with no novel content included. See [`NOTICE`](NOTICE).
 
 ## License
 

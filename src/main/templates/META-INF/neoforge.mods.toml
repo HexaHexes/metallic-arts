@@ -39,3 +39,29 @@ side = "BOTH"
 # Add your mod's dependencies below. Use type = "optional" for anything the mod
 # works without, and gate the code that touches it (mixins, registrations) so it
 # no-ops when the dependency is absent.
+
+# Planned interop targets for the Tensura RPG pack (docs/integrations.md).
+# Optional while the repo is in planning: nothing references them yet. They
+# become required once the interop code lands, and every upstream-typed call
+# stays behind a ModList gate regardless (see agents/REPO.md gotchas).
+
+[[dependencies.${mod_id}]]
+modId = "ability_core"
+type = "optional"
+versionRange = "[1.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "ability_hotbar"
+type = "optional"
+versionRange = "[1.0.0-alpha,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "skysleylines"
+type = "optional"
+versionRange = "[0.5.6,)"
+ordering = "AFTER"
+side = "BOTH"
