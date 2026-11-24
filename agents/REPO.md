@@ -6,8 +6,8 @@ and pulled in verbatim — **never hand-edit it.** Everything in this file is th
 repo's own and is edited freely; keep it aligned with the org rules rather than
 restating them.
 
-**Repo:** `HexaHexes/metallic-arts` · **Mod ID:** `metallic_arts` · **Branch:** `main`
-**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 · **Jar:** `build/libs/metallic_arts-<version>.jar`
+**Repo:** `HexaHexes/metallic-arts` · **Mod ID:** `metallic_arts` · **Branch:** `neoforge-1.21.1` (the loader line; this is the default branch - no `main`)
+**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 · **Jar:** `build/libs/metallic_arts-neoforge-1.21.1-<version>.jar`
 
 An Allomancy-inspired metal magic mod for the Tensura RPG pack: players ingest
 allomantic metals and burn them to shape power drawn from Sky's Ley Lines'
